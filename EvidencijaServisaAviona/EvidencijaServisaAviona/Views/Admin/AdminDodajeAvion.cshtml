@@ -1,0 +1,60 @@
+﻿@using System.Data;
+@model SlojPodataka.clsAvion
+
+@{
+    ViewData["Title"] = "Dodajte avion";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Dodaj avion</h4>
+                <form asp-action="AdminDodajeAvion" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group">
+                        <label asp-for="IdProizvodjaca">Proizvođač<span class="text-danger"> *</span></label>
+                        <select asp-for="IdProizvodjaca" class="form-control">
+                            <option value="">Izaberite proizvođača</option>
+                            @foreach (DataRow row in ViewBag.Proizvodjaci.Rows)
+                            {
+                                <option value="@row["IDProizvodjaca"]">@row["Naziv"]</option>
+                            }
+                        </select>
+                        <span asp-validation-for="IdProizvodjaca" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Model">Model<span class="text-danger"> *</span></label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DatumProizvodnje">Datum proizvodnje<span class="text-danger"> *</span></label>
+                        <input asp-for="DatumProizvodnje" class="form-control" type="date" />
+                        <span asp-validation-for="DatumProizvodnje" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Dodaj avion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

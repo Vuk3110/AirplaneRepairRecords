@@ -1,0 +1,68 @@
+﻿@using System.Data;
+@model System.Data.DataSet
+
+@{
+    ViewData["Title"] = "Servisi";
+    var services = Model?.Tables[0]?.Rows.Cast<DataRow>();
+}
+
+<style>
+    .sticky-note {
+        background-color: #ffeb3b;
+        padding: 20px;
+        margin: 10px;
+        width: 300px;
+        height: 250px;
+        display: inline-block;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .sticky-note h5 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .sticky-note p {
+        font-size: 1em;
+        line-height: 1.2em;
+        margin: 5px 0;
+    }
+
+    .sticky-note .details-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<h1>Spisak svih servisa:</h1>
+
+<div class="d-flex flex-wrap justify-content-center">
+    @if (services != null && services.Any())
+    {
+        @foreach (var row in services)
+        {
+            <div class="sticky-note">
+                <h5>Servis ID: @row["IDServisa"]</h5>
+                <p><strong>Naziv aviona:</strong> @row["Naziv"]</p>
+                <p><strong>Model aviona:</strong> @row["Model"]</p>
+                <p><strong>Datum servisa:</strong> @row["DatumServisa"]</p>
+                <p><strong>Status:</strong> @row["Opis"]</p>
+                <button class="btn btn-primary details-btn" onclick="location.href='@Url.Action("AdminPregledServisaDetalji", "Admin", new { id = row["IDServisa"] })'">Detalji</button>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Nema servisa.</p>
+    }
+</div>
+
+<button onclick="location.href='@Url.Action("AdminFormaZaServis", "Admin")'" class="btn btn-sm btn-success">Dodaj</button>

@@ -1,0 +1,70 @@
+﻿@using System.Data
+@model DataSet
+
+@{
+    ViewData["Title"] = "Pregled aviona";
+}
+
+<h1>Pregled aviona</h1>
+<form asp-action="AdminPregledAviona" asp-controller="Admin" method="get">
+    <label for="proizvodjacFilter">Izaberite proizvođača:</label>
+    <select id="proizvodjacFilter" name="proizvodjac" class="form-control">
+        <option value="">Svi proizvođači</option>
+        @foreach (DataRow row in ViewBag.SviProizvodjaci.Rows)
+        {
+            <option value="@row["Naziv"]">@row["Naziv"]</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-sm btn-primary mt-3">Potvrdi</button>
+</form>
+
+<hr />
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+@if (Model != null && Model.Tables.Count > 0 && Model.Tables[0].Rows.Count > 0)
+{
+    <h2>Spisak aviona</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID aviona</th>
+                <th>Proizvođač</th>
+                <th>Model</th>
+                <th>Datum proizvodnje</th>
+                <th>Obriši</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <tr>
+                    <td>@row["IDAviona"]</td>
+                    <td>@row["Naziv"]</td>
+                    <td>@row["Model"]</td>
+                    <td>@((row["DatumProizvodnje"] as DateTime?)?.ToString("dd/MM/yyyy"))</td>
+                    
+                    <td>
+                        <form method="post" action="@Url.Action("AdminBriseAvion", "Admin")">
+                            <input type="hidden" name="IDAviona" value="@row["IDAviona"]" />
+                            <input type="hidden" name="action" value="obrisi" />
+                            <button type="submit" class="btn btn-sm btn-danger">Obriši</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nema dostupnih aviona za prikaz.</p>
+}
+
+<div class="mb-3">
+    <button onclick="location.href='@Url.Action("AdminDodajeAvion", "Admin")'" class="btn btn-sm btn-primary">Dodaj</button>
+</div>

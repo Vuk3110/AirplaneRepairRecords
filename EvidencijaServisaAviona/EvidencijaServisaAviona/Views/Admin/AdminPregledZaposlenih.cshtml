@@ -1,0 +1,72 @@
+﻿@using System.Data;
+@model System.Data.DataSet
+
+@{
+    ViewData["Title"] = "Zaposleni";
+}
+
+<h1>Spisak svih zaposlenih:</h1>
+<form asp-action="AdminPregledZaposlenih" asp-controller="Admin" method="get">
+    <label for="prezimeFilter">Pretraži po prezimenu:</label>
+    <input type="text" id="prezimeFilter" name="prezime" class="form-control" />
+    <button type="submit" class="btn btn-sm btn-primary mt-3">Pretraži</button>
+</form>
+
+<hr />
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+@if (Model != null && Model.Tables.Count > 0 && Model.Tables[0].Rows.Count > 0)
+{
+    <h2>Spisak zaposlenih</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>JMBG</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Email</th>
+                <th>Lozinka</th>
+                <th>Ovlašćenje</th>
+                <th>Izmeni</th>
+                <th>Obriši</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <tr>
+                    <td>@row["JMBG"]</td>
+                    <td>@row["Ime"]</td>
+                    <td>@row["Prezime"]</td>
+                    <td>@row["Email"]</td>
+                    <td>@row["Lozinka"]</td>
+                    <td>@row["Ovlascenje"]</td>
+                    <td>
+                        <form method="post" action="@Url.Action("IzmeniZaposlenog", "Admin")">
+                            <input type="hidden" name="email" value="@row["Email"]" />
+                            <input type="hidden" name="action" value="izmeni" />
+                            <button type="submit" class="btn btn-sm btn-info">Izmeni</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="@Url.Action("AdminBriseZaposlenog", "Admin")">
+                            <input type="hidden" name="JMBG" value="@row["JMBG"].ToString()" />
+                            <input type="hidden" name="action" value="obrisi" />
+                            <button type="submit" class="btn btn-sm btn-danger">Obriši</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nema zaposlenih.</p>
+}
+
+<div class="mb-3">
+    <button onclick="location.href='@Url.Action("AdminFormaZaZaposlenog", "Admin")'" class="btn btn-sm btn-primary mt-3">Dodaj</button>
+</div>

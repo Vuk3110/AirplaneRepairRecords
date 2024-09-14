@@ -1,0 +1,74 @@
+﻿@model SlojPodataka.clsZaposleni
+
+@{
+    ViewData["Title"] = "Dodajte zaposlenog";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Dodaj zaposlenog</h4>
+                <form asp-action="AdminDodajeZaposlenog" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Ime">Ime<span class="text-danger"> *</span></label>
+                            <input asp-for="Ime" class="form-control" />
+                            <span asp-validation-for="Ime" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Prezime">Prezime<span class="text-danger"> *</span></label>
+                            <input asp-for="Prezime" class="form-control" />
+                            <span asp-validation-for="Prezime" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Email">E-mail adresa<span class="text-danger"> *</span></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Lozinka">Lozinka<span class="text-danger"> *</span></label>
+                            <input asp-for="Lozinka" class="form-control" type="password" />
+                            <span asp-validation-for="Lozinka" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Ovlascenje">Ovlašćenje<span class="text-danger"> *</span></label>
+                            <input asp-for="Ovlascenje" class="form-control" />
+                            <span asp-validation-for="Ovlascenje" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex">
+                            <label asp-for="Jmbg">JMBG<span class="text-danger"> *</span></label>
+                            <input asp-for="Jmbg" class="form-control" />
+                            <span asp-validation-for="Jmbg" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="submit" class="btn btn-sm btn-success" name="action" value="dodaj">Dodaj zaposlenog</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

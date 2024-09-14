@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Početna";
+}
+
+<div class="container mt-5 bg-white">
+    <div class="text-center mb-4">
+        <h1 class="display-3 text-primary">Izaberite opciju</h1>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+        <div class="btn-group-vertical align-items-center" role="group" >
+            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminPregledZaposlenih">
+                <button class="btn btn-primary btn-lg btn-block mb-3 ">PREGLED ZAPOSLENIH</button>
+            </a>
+            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminPregledAviona">
+                <button class="btn btn-primary btn-lg btn-block mb-3 ">PREGLED AVIONA</button>
+            </a>
+            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminPregledIzvestaja">
+                <button class="btn btn-primary btn-lg btn-block mb-3">PREGLED IZVEŠTAJA</button>
+            </a>
+            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="AdminPregledServisa">
+                <button class="btn btn-primary btn-lg btn-block mb-3">PREGLED SERVISA</button>
+            </a>
+        </div>
+    </div>
+</div>

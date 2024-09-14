@@ -1,0 +1,93 @@
+﻿@using System.Data
+@model System.Data.DataSet
+
+@{
+    ViewData["Title"] = "Lista Servisa";
+    var preuzetiServisi = ViewBag.PreuzetiServisi as DataSet;
+}
+
+<h2>Lista Servisa</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<style>
+    .sticky-note {
+        background-color: #ffeb3b;
+        padding: 20px;
+        margin: 10px;
+        width: 300px;
+        height: 250px;
+        display: inline-block;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: relative;
+    }
+
+        .sticky-note h5 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .sticky-note p {
+            font-size: 1em;
+            line-height: 1.2em;
+            margin: 5px 0;
+        }
+
+        .sticky-note .details-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+</style>
+
+<div class="d-flex flex-wrap justify-content-center">
+    @if (Model != null && Model.Tables.Count > 0 && Model.Tables[0].Rows.Count > 0)
+    {
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <div class="sticky-note">
+                <h5>Servis ID: @row["IDServisa"]</h5>
+                <p><strong>Naziv aviona:</strong> @row["Naziv"]</p>
+                <p><strong>Model aviona:</strong> @row["Model"]</p>
+                <p><strong>Datum servisa:</strong> @row["DatumServisa"]</p>
+                <p><strong>Status:</strong> @row["Opis"]</p>
+                <form asp-controller="Zaposleni" asp-action="IzaberiServis" method="post">
+                    <input type="hidden" name="idServisa" value="@row["IDServisa"]" />
+                    <button type="submit" class="btn btn-primary details-btn">Izaberi</button>
+                </form>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Nema dostupnih servisa.</p>
+    }
+</div>
+
+<h2>Moji Servisi</h2>
+
+<div class="d-flex flex-wrap justify-content-center">
+    @if (Model != null && Model.Tables.Count > 0 && Model.Tables[0].Rows.Count > 0)
+    {
+        @foreach (DataRow row in preuzetiServisi.Tables[0].Rows)
+        {
+            <div class="sticky-note">
+                <h5>Servis ID: @row["IDServisa"]</h5>
+                <p><strong>Naziv aviona:</strong> @row["Naziv"]</p>
+                <p><strong>Model aviona:</strong> @row["Model"]</p>
+                <p><strong>Datum servisa:</strong> @row["DatumServisa"]</p>
+                <p><strong>Status:</strong> @row["Opis"]</p>
+                <button class="btn btn-primary details-btn" onclick="location.href='@Url.Action("PrikaziServis", "Zaposleni", new { idServisa = row["IDServisa"] })'">Prikaži</button>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Nema preuzetih servisa.</p>
+    }
+</div>

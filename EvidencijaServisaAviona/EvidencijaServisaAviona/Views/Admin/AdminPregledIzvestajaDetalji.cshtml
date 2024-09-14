@@ -1,0 +1,119 @@
+﻿@using System.Data;
+@model System.Data.DataSet
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Štampanje izveštaja</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            color: #1f497d;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        table, th, td {
+            border: 1px solid #1f497d;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        h4 {
+            margin-top: 20px;
+            color: #1f497d;
+        }
+    </style>
+</head>
+<body>
+    <h1>SAOBRAĆAJ</h1>
+    <h2>AERODROM</h2>
+    <h3>EVIDENCIJA POPRAVKI AVIONA</h3>
+
+    @if (Model != null)
+    {
+        // Prikaz izveštaja
+        if (Model.Tables.Count > 0 && Model.Tables["Izvestaj"].Rows.Count > 0)
+        {
+            <h4>Izveštaji</h4>
+            <table>
+                <tr>
+                    <th>ID Izveštaja</th>
+                    <th>ID servisa</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Naziv</th>
+                    <th>Model</th>
+                    <th>Datum servisa</th>
+                    <th>Opis</th>
+                </tr>
+                @foreach (DataRow row in Model.Tables["Izvestaj"].Rows)
+                {
+                    <tr>
+                        <td>@row["IDIzvestaja"]</td>
+                        <td>@row["IDServisa"]</td>
+                        <td>@row["Ime"]</td>
+                        <td>@row["Prezime"]</td>
+                        <td>@row["Naziv"]</td>
+                        <td>@row["Model"]</td>
+                        <td>@((row["DatumServisa"] as DateTime?)?.ToString("dd/MM/yyyy"))</td>
+                        <td>@row["Opis"]</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>Nema izveštaja.</p>
+        }
+
+        // Prikaz potrošnje delova
+        if (Model.Tables.Count > 1 && Model.Tables["PotrosnjaDelova"].Rows.Count > 0)
+        {
+            <h4>Potrosnja Delova</h4>
+            <table>
+                <tr>
+                    <th>ID Servisa</th>
+                    <th>ID Dela</th>
+                    <th>Naziv Dela</th>
+                    <th>Potroseno Komada</th>
+                </tr>
+                @foreach (DataRow row in Model.Tables["PotrosnjaDelova"].Rows)
+                {
+                    <tr>
+                        <td>@row["IdServis"]</td>
+                        <td>@row["IdDeo"]</td>
+                        <td>@row["NazivDeo"]</td>
+                        <td>@row["PotrosenoKomada"]</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>Nema potrošnje delova za prikaz.</p>
+        }
+    }
+    else
+    {
+        <p>Nemamo podatke za prikaz.</p>
+    }
+</body>
+</html>

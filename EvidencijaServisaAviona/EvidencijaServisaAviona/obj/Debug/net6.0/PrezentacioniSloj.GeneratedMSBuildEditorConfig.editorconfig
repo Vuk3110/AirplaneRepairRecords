@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PrezentacioniSloj
+build_property.RootNamespace = PrezentacioniSloj
+build_property.ProjectDir = C:\Users\vuktr\Source\Repos\AirplaneRepairRecords\EvidencijaServisaAviona\EvidencijaServisaAviona\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\vuktr\Source\Repos\AirplaneRepairRecords\EvidencijaServisaAviona\EvidencijaServisaAviona
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminDodajeAvion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Eb2RhamVBdmlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminDodajeServis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Eb2RhamVTZXJ2aXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminDodajeZaposlenog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Eb2RhamVaYXBvc2xlbm9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPocetna.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Qb2NldG5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledAviona.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkQXZpb25hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledIzvestaja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkSXp2ZXN0YWphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledIzvestajaDetalji.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkSXp2ZXN0YWphRGV0YWxqaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledServisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkU2VydmlzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledServisaDetalji.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkU2VydmlzYURldGFsamkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledZaposlenih.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkWmFwb3NsZW5paC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/AdminPregledZaposlenogDetalji.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QcmVnbGVkWmFwb3NsZW5vZ0RldGFsamkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Home/OServisu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPU2VydmlzdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Home/Pocetna.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb2NldG5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Nalog/Prijava.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFsb2dcUHJpamF2YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Shared/_LayoutZaposleni.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRaYXBvc2xlbmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Zaposleni/ZaposleniPocetna.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFwb3NsZW5pXFphcG9zbGVuaVBvY2V0bmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Zaposleni/ZaposleniServisDetalji.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFwb3NsZW5pXFphcG9zbGVuaVNlcnZpc0RldGFsamkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Zaposleni/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFwb3NsZW5pXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vuktr/Source/Repos/AirplaneRepairRecords/EvidencijaServisaAviona/EvidencijaServisaAviona/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ik8g9kenhn

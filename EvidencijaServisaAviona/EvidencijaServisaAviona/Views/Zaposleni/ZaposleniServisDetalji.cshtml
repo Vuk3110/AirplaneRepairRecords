@@ -1,0 +1,152 @@
+﻿@using System.Data;
+@model System.Data.DataSet
+
+@{
+    ViewData["Title"] = "Detalji servisa";
+}
+
+<style>
+    .sticky-note {
+        background-color: #ffeb3b;
+        padding: 20px;
+        margin: 10px;
+        width: 100%;
+        max-width: 600px; /* Opcionalno, podesite širinu prema potrebama */
+        height: 100%;
+        max-height: 600px; /* Opcionalno, podesite visinu prema potrebama */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: relative;
+        overflow-y: auto; /* Omogućava skrolovanje ako sadržaj prelazi visinu sticky-note */
+    }
+
+        .sticky-note h5 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .sticky-note p {
+            font-size: 1em;
+            line-height: 1.2em;
+            margin: 5px 0;
+            word-wrap: break-word;
+        }
+
+        .sticky-note .details-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    .part-group {
+        margin-bottom: 15px;
+    }
+
+    .remove-part {
+        cursor: pointer;
+        color: red;
+        margin-left: 10px;
+    }
+</style>
+
+<h2 class="text-center">Detalji servisa</h2>
+
+@if (Model != null && Model.Tables.Count > 0)
+{
+    var row = Model.Tables[0].Rows[0];
+
+    <div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 100px);">
+        <!-- Adjust height to fit screen -->
+        <div class="sticky-note">
+            <h5 class="card-title">Servis ID: @row["IDServisa"]</h5>
+            <p class="card-text"><strong>Naziv aviona:</strong> @row["Naziv"]</p>
+            <p class="card-text"><strong>Model aviona:</strong> @row["Model"]</p>
+            <p class="card-text"><strong>Datum servisa:</strong> @row["DatumServisa"]</p>
+            <p class="card-text"><strong>Status Tiketa:</strong> @row["Opis"]</p>
+            <p class="card-text"><strong>Opis kvara:</strong> @row["OpisKvara"]</p>
+
+            <form asp-controller="Zaposleni" asp-action="DodajIzvestaj" method="post">
+                <input type="hidden" name="idServisa" value="@row["IDServisa"]" />
+                <div class="form-group">
+                    <label for="opis"><strong>Opis šta je odrađeno:</strong></label>
+                    <textarea id="opis" name="opis" class="form-control" rows="5"></textarea>
+                </div>
+                <div id="parts-container">
+                    <!-- Initial part group -->
+                    <div class="form-group part-group">
+                        <label for="delovi"><strong>Delovi:</strong></label>
+                        <select name="delovi[]" class="form-control" data-index="0" onchange="updateMaxQuantity(this)">
+                            @foreach (DataRow deo in ViewBag.Delovi.Tables[0].Rows)
+                            {
+                                <option value="@deo["Id"]" data-stanje="@deo["Stanje"]">@deo["Naziv"] - Stanje: @deo["Stanje"]</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group part-group">
+                        <label for="kolicina"><strong>Količina:</strong></label>
+                        <input type="number" name="kolicina[]" class="form-control" data-index="0" />
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary mt-2" onclick="addPart()">Dodaj još jedan deo</button>
+                <button type="submit" class="btn btn-primary mt-2">Dodaj izveštaj</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function updateMaxQuantity(selectElement) {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const maxQuantity = selectedOption.getAttribute('data-stanje');
+            const index = selectElement.getAttribute('data-index');
+            const quantityInput = document.querySelector(`input[name='kolicina[]'][data-index='${index}']`);
+            quantityInput.max = maxQuantity;
+        }
+
+        function addPart() {
+            const partContainer = document.getElementById('parts-container');
+            const currentIndex = partContainer.children.length / 2;
+
+            // Create a new part group
+            const newPartGroup = document.createElement('div');
+            newPartGroup.className = 'part-group';
+            newPartGroup.innerHTML = `
+                                <div class="form-group">
+                                    <label for="delovi"><strong>Delovi:</strong></label>
+                                    <select name="delovi[]" class="form-control" data-index="${currentIndex}" onchange="updateMaxQuantity(this)">
+        @foreach (DataRow deo in ViewBag.Delovi.Tables[0].Rows)
+        {
+                                                    <option value="@deo["Id"]" data-stanje="@deo["Stanje"]">@deo["Naziv"] - Stanje: @deo["Stanje"]</option>
+        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="kolicina"><strong>Količina:</strong></label>
+                                    <input type="number" name="kolicina[]" class="form-control" data-index="${currentIndex}" />
+                                </div>
+                                <span class="remove-part" onclick="removePart(this)">X</span>
+                            `;
+
+            // Append new part group to the parts container
+            partContainer.appendChild(newPartGroup);
+        }
+
+        function removePart(element) {
+            // Remove the part group
+            const partGroup = element.parentElement;
+            partGroup.parentElement.removeChild(partGroup);
+        }
+
+        // Initial update for the first part group
+        document.addEventListener('DOMContentLoaded', function () {
+            const initialSelect = document.querySelector('#parts-container select');
+            if (initialSelect) {
+                updateMaxQuantity(initialSelect);
+            }
+        });
+    </script>
+}
+else
+{
+    <p class="text-center">Nema podataka o servisu.</p>
+}

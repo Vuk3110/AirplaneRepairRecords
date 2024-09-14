@@ -1,0 +1,150 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('/images/aircraft_service.png'); /* Putanja do vaše slike */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set default font family */
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* Footer styling */
+footer {
+    font-size: 15px;
+    background-color: #3498db; /* Blue background */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navbar and header styling */
+.nav-item {
+    color: white; /* Color of navigation items */
+}
+
+.container mt-5 {
+    background-image: url('/images/aircraft_service.png'); /* Putanja do vaše slike */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container-fluid {
+    color: white; /* Color of text inside container */
+    font-size: 30px; /* Font size inside container */
+    background-color: #3498db !important; /* Blue background with !important to override other styles */
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important; /* Color of navbar links */
+}
+
+/* Paragraph styling */
+p {
+    margin-bottom: 20px; /* Reduced margin */
+}
+
+/* Button styling */
+button {
+    text-align: center;
+    font-size: 18px; /* Reduced font size for buttons */
+    color: white;
+    background-color: #3498db; /* Blue background */
+}
+
+/* Additional spacing and alignment */
+.row {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.text-center {
+    justify-content: center;
+}
+
+/* Custom card styling */
+.card {
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #3498db;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.btn-success {
+    background-color: #3498db;
+    border: none;
+    color: white;
+}
+
+    .btn-success:hover {
+        background-color: #2c80b4;
+        color: white;
+    }
+
+/* Form styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 1rem;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+}
+
+/* Landing Page Specific Styles */
+.display-3 {
+    font-size: 2.5rem;
+}
+
+.display-4 {
+    font-size: 2rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #555;
+}
+
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Stilizovanje dugmadi */
+.btn-primary {
+    font-size: 1.25rem; /* Veći font za dugme */
+    padding: 0.75rem 1.25rem; /* Veće unutrašnje margine */
+    border-radius: 4px; /* Zaobljeni uglovi */
+    
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
